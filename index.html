@@ -780,7 +780,7 @@
         <div class="stat-label">AI Prompts</div>
       </div>
       <div class="stat">
-        <div class="stat-number">5</div>
+        <div class="stat-number">6</div>
         <div class="stat-label">Categories</div>
       </div>
       <div class="stat">
@@ -1110,6 +1110,110 @@
         <div class="prompt-box">
           <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
           You are a Christian children's curriculum writer who creates faith-based activity packs for kids ages [AGE RANGE]. Using the Bible story of [STORY — e.g., David and Goliath, Noah's Ark, The Good Samaritan], create a complete activity pack including: a retold story (age-appropriate, 150 words), 3 discussion questions, a memory verse with a fun memorization tip, a coloring page description, a simple craft idea with instructions, and a take-home prayer the child can say. Format as a complete Sunday school or homeschool lesson.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 6: Claude AI Power Prompts ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">🤖</div>
+      <div>
+        <div class="section-title">Claude AI Power Prompts</div>
+        <div class="section-subtitle">High-demand workflow prompts engineered specifically for Claude</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Workflow</span>
+        <div class="card-title">The Deep Work Brain Dump</div>
+        <div class="card-desc">Offload everything in your head and let Claude organize it into a prioritized action plan.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a productivity strategist and executive assistant. I am going to do a full brain dump of everything on my plate right now — tasks, ideas, worries, projects, and random to-dos. After I finish, organize everything into: (1) Urgent & Important — do today, (2) Important but not urgent — schedule, (3) Delegate or automate, (4) Delete or ignore. Then give me a clear "Top 3 Focus Items" for today. Ready? Here is my brain dump: [PASTE EVERYTHING]
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Content</span>
+        <div class="card-title">The Content Multiplier</div>
+        <div class="card-desc">Feed Claude one idea and get a full week of multi-platform content instantly.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a content strategist who specializes in repurposing one core idea across multiple platforms for maximum reach. My core idea is: [ONE SENTENCE IDEA]. My brand voice is [DESCRIBE — e.g., bold, faith-driven, educational, conversational]. Create: 1 long-form LinkedIn post (300 words), 3 Instagram captions with hooks, 1 email subject line + preview text, 5 Twitter/X posts, 1 YouTube Shorts script (60 seconds), and 1 Facebook post. Keep my voice consistent across all formats.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Business</span>
+        <div class="card-title">The Offer Clarity Script</div>
+        <div class="card-desc">Struggling to explain what you do? Claude will nail your messaging in one shot.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a brand messaging expert who helps service providers communicate their value with crystal clarity. I help [WHO] achieve [WHAT RESULT] through [HOW — your method/service]. My client's biggest pain point is [PAIN]. Write me: a one-sentence elevator pitch, a 3-sentence bio for social media, a website hero headline + subheadline, and a 30-second verbal pitch script I can say out loud. Make it confident, clear, and compelling — no jargon.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">Research</span>
+        <div class="card-title">The Market Intelligence Report</div>
+        <div class="card-desc">Get Claude to research your niche, competitors, and opportunities like a paid analyst.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a market research analyst who specializes in small business and personal brand niches. My business is [NAME], I offer [SERVICE], and my target market is [AUDIENCE] in [LOCATION/INDUSTRY]. Provide a market intelligence report including: (1) Top 3 pain points my audience is actively searching for solutions to, (2) Top 5 competitor strategies in my space, (3) 3 underserved opportunities I could own, (4) The most effective content formats in my niche right now, (5) A recommended positioning statement that sets me apart. Format with clear headers.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Productivity</span>
+        <div class="card-title">The SOP Speed Builder</div>
+        <div class="card-desc">Turn any repeatable task into a bulletproof SOP Claude can help you run on autopilot.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an operations consultant who builds lean, clear SOPs for solo entrepreneurs and small teams. I need to document the process for [TASK NAME — e.g., onboarding a new client, posting content, sending invoices]. Walk me through it step by step by asking me one question at a time about how I currently do it. After I answer all your questions, compile everything into a clean, numbered SOP with a title, purpose, tools needed, steps, quality checks, and a done checklist. Start with your first question now.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Email</span>
+        <div class="card-title">The Inbox Zero Response Kit</div>
+        <div class="card-desc">Paste any email into Claude and get a polished, professional reply in seconds.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are my executive assistant and professional ghostwriter. I am going to paste an email I received. Write me a reply that is: professional but warm, addresses every point raised, maintains my brand tone which is [DESCRIBE — e.g., confident, faith-driven, direct], and ends with a clear next step or CTA. Keep it under 150 words unless a longer response is clearly needed. Do not start with "I hope this email finds you well." Here is the email: [PASTE EMAIL]
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Strategy</span>
+        <div class="card-title">The Launch Planner</div>
+        <div class="card-desc">Give Claude your offer details and get a complete launch plan — countdown, content, and copy.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a digital product launch strategist who has helped entrepreneurs generate five and six figures from online launches. I am launching [PRODUCT/SERVICE NAME] at [PRICE POINT] on [LAUNCH DATE]. My audience size is approximately [NUMBER] on [PLATFORMS]. My goal is [REVENUE/SIGN-UP TARGET]. Build me a complete 14-day launch plan including: daily content topics, 3 email subject lines, 2 Instagram Reel hooks, a cart-open announcement post, a cart-close urgency post, and an objection-handling FAQ. Format by day.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">AI Workflow</span>
+        <div class="card-title">The Claude Command Chain</div>
+        <div class="card-desc">Stack multiple instructions in one prompt — Claude's most powerful workflow technique.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an expert AI prompt engineer. I am going to give you a multi-step task chain. Complete each step in order and label each output clearly before moving to the next. Do not skip steps or combine them. Here are my steps: Step 1 — [FIRST TASK]. Step 2 — Using the output from Step 1, [SECOND TASK]. Step 3 — Using the output from Step 2, [THIRD TASK]. Step 4 — Compile everything from Steps 1–3 into a final [FORMAT — e.g., document, table, script, post]. Begin with Step 1 now.
         </div>
         <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
       </div>

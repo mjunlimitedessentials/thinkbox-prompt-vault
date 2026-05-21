@@ -780,7 +780,7 @@
         <div class="stat-label">AI Prompts</div>
       </div>
       <div class="stat">
-        <div class="stat-number">6</div>
+        <div class="stat-number">7</div>
         <div class="stat-label">Categories</div>
       </div>
       <div class="stat">
@@ -1214,6 +1214,110 @@
         <div class="prompt-box">
           <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
           You are an expert AI prompt engineer. I am going to give you a multi-step task chain. Complete each step in order and label each output clearly before moving to the next. Do not skip steps or combine them. Here are my steps: Step 1 — [FIRST TASK]. Step 2 — Using the output from Step 1, [SECOND TASK]. Step 3 — Using the output from Step 2, [THIRD TASK]. Step 4 — Compile everything from Steps 1–3 into a final [FORMAT — e.g., document, table, script, post]. Begin with Step 1 now.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 7: Author & Publishing Vault ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">📚</div>
+      <div>
+        <div class="section-title">Author & Publishing Vault</div>
+        <div class="section-subtitle">Book writing, Amazon KDP, self-publishing & author success roadmap</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Book Concept</span>
+        <div class="card-title">Book Idea Generator & Validator</div>
+        <div class="card-desc">Turn your expertise into a winning book concept that sells before you write a word.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a bestselling book strategist who helps non-fiction authors find their most profitable and impactful book idea. My expertise is in [YOUR NICHE/TOPIC]. My target reader is [AUDIENCE]. My goal for this book is [GOAL — e.g., build authority, generate income, grow my ministry, attract clients]. Generate 5 book title ideas with subtitles, a one-paragraph description for each, the ideal Amazon KDP category, and a "why this sells" statement for each. Then recommend the strongest one and explain why.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Outline</span>
+        <div class="card-title">Complete Book Outline Builder</div>
+        <div class="card-desc">Get a professional chapter-by-chapter outline for any non-fiction book in minutes.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a professional book editor and non-fiction writing coach. I am writing a book titled [TITLE] for [TARGET AUDIENCE]. The main transformation I want readers to experience is [BEFORE STATE → AFTER STATE]. Build a complete book outline with: an Introduction, 8–10 chapters each with a title, 3-sentence summary, 3 key points covered, and a chapter-ending action step or reflection question. Also include a Conclusion and a Resources/Next Steps section. Format as a clean, ready-to-write outline.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Writing</span>
+        <div class="card-title">Chapter Writer & Ghost Drafter</div>
+        <div class="card-desc">Write full book chapters in your voice — fast, focused, and publish-ready.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a ghostwriter who specializes in non-fiction books for entrepreneurs, ministry leaders, and educators. You write in a voice that is [DESCRIBE YOUR VOICE — e.g., warm and direct, faith-based and motivational, educational and practical]. I need you to write Chapter [NUMBER]: [CHAPTER TITLE]. The key points to cover are: [LIST YOUR POINTS]. The target word count is [500–1500] words. Open with a compelling story or hook, flow through the key points with real examples, and close with a reflection question or action step. Match my voice throughout.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">KDP Setup</span>
+        <div class="card-title">Amazon KDP Publishing Checklist</div>
+        <div class="card-desc">Everything you need to set up and publish your book on Amazon KDP — step by step.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an Amazon KDP publishing expert who has helped hundreds of authors successfully launch on the platform. My book is titled [TITLE], it is a [GENRE/TYPE] book for [AUDIENCE], approximately [PAGE COUNT] pages. Walk me through the complete KDP publishing process including: (1) Account setup tips, (2) Manuscript formatting requirements for print and eBook, (3) Cover design specs, (4) ISBN and copyright guidance, (5) Pricing strategy for royalties, (6) Category and keyword selection, (7) Book description copywriting tips, (8) Launch day checklist. Format as a step-by-step action guide.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">KDP Keywords</span>
+        <div class="card-title">Amazon KDP SEO & Keyword Strategy</div>
+        <div class="card-desc">Rank higher on Amazon search and get discovered by your exact reader.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an Amazon KDP SEO specialist who helps self-published authors maximize discoverability. My book is [TITLE], in the category [CATEGORY], targeting [AUDIENCE]. The main topics covered are [LIST 3–5 TOPICS]. Generate: 7 high-converting Amazon backend keywords (under 50 characters each), the top 2 Amazon BISAC categories I should select, a keyword-rich book description (150–200 words) formatted with bold headers for the KDP backend, and 5 A+ Content headline ideas. Explain why each keyword was chosen.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Book Description</span>
+        <div class="card-title">Bestselling Book Description Writer</div>
+        <div class="card-desc">Write an Amazon book description so compelling readers can't scroll past it.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a direct response copywriter who specializes in Amazon book descriptions that convert browsers into buyers. My book is titled [TITLE]. It is for [AUDIENCE] who struggle with [PAIN POINT]. By the end of the book they will [TRANSFORMATION]. Key topics include [LIST 3]. Write a complete Amazon book description with: a hook opening (2 sentences), a pain/problem paragraph, a solution/promise paragraph, 5 bullet points of what readers will learn, a credibility line about the author, and a strong CTA closing. Under 300 words. Ready for KDP copy-paste.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Launch</span>
+        <div class="card-title">Book Launch Marketing Plan</div>
+        <div class="card-desc">A complete pre-launch and launch week strategy to hit bestseller status.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a book launch strategist who specializes in Amazon bestseller campaigns for self-published authors. My book [TITLE] launches on [DATE]. My audience is [AUDIENCE] and I have [PLATFORM — e.g., email list of X, Instagram following of X, Facebook group of X]. My budget is [BUDGET or "zero"]. Build a 30-day launch plan covering: 2-week pre-launch content strategy, launch day activities, post-launch momentum tactics, email sequence (3 emails), social media posts (5), outreach strategy for reviews, and how to hit a #1 bestseller tag in a subcategory. Format by week.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">Author Brand</span>
+        <div class="card-title">Author Brand & Platform Builder</div>
+        <div class="card-desc">Build your author brand, grow your audience, and set up income streams beyond the book.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an author branding consultant who helps writers build influential platforms and multiple income streams from their books. My name is [NAME], I wrote [BOOK TITLE] for [AUDIENCE], and my expertise is [NICHE]. I currently have [DESCRIBE CURRENT PLATFORM]. Build me a complete author brand strategy including: author bio (short + long versions), social media profile optimization tips, 5 content pillars for ongoing posting, 3 speaking topic angles based on my book, and 5 income streams I can build from this book (e.g., courses, coaching, workshops, merch, workbooks). Format as an actionable brand playbook.
         </div>
         <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
       </div>

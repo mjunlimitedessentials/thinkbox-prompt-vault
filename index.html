@@ -1,1 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Prompt Vault™ | ThinkBox AI Studios</title>
+  <meta name="description" content="The Prompt Vault™ by ThinkBox AI Studios — RCTF-structured AI prompts, plug-and-play scripts, templates, and automation playbooks for business owners, ministry leaders, and creatives. Presented by Mona Jackson-Ham." />
+  <meta name="keywords" content="AI prompts, RCTF framework, prompt engineering, AI for business, ThinkBox AI Studios, Mona Jackson-Ham, AI automation, content creation AI, AI literacy" />
+  <meta property="og:title" content="The Prompt Vault™ | ThinkBox AI Studios" />
+  <meta property="og:description" content="RCTF AI prompts, scripts & automation playbooks for entrepreneurs. Presented by Mona Jackson-Ham." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7b2fff;
+      --purple-dark: #4a0fa0;
+      --purple-deep: #1a0040;
+      --pink: #ff2d78;
+      --pink-light: #ff6eb4;
+      --silver: #c0c8d8;
+      --silver-light: #e8edf5;
+      --black: #050010;
+      --black-card: #0d0025;
+      --gold: #f5c842;
+      --white: #ffffff;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── GALACTIC BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(123,47,255,0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(255,45,120,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(26,0,64,0.8) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Stars */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle var(--d, 3s) ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* ── LOCK SCREEN ── */
+    #lockScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center, #1a0040 0%, #050010 70%);
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .lock-card {
+      background: rgba(13,0,37,0.95);
+      border: 1px solid rgba(123,47,255,0.4);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(123,47,255,0.3), 0 0 120px rgba(255,45,120,0.1);
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .wordmark {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .wordmark-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .wordmark-icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .wordmark-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .wordmark-text span {
+      color: var(--gold);
+    }
+
+    .wordmark-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--silver);
+      text-transform: uppercase;
+      display: block;
+      text-align: center;
+    }
+
+    .lock-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .lock-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--silver);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lock-tagline {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .lock-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(123,47,255,0.8));
+    }
+
+    .lock-input-wrap {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .lock-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(123,47,255,0.4);
+      border-radius: 12px;
+      color: var(--white);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .lock-input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 20px rgba(123,47,255,0.4);
+    }
+
+    .lock-input::placeholder {
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+    }
+
+    .lock-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(123,47,255,0.4);
+    }
+
+    .lock-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(123,47,255,0.6);
+    }
+
+    .lock-error {
+      color: var(--pink);
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      display: none;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .lock-presenter {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(192,200,216,0.6);
+    }
+
+    /* ── MAIN VAULT ── */
+    #vaultContent {
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    .vault-header {
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(123,47,255,0.2);
+      background: rgba(13,0,37,0.6);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .header-wordmark-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      border: 1.5px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    .header-wordmark-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .header-wordmark-text span { color: var(--gold); }
+
+    .vault-header-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--purple), var(--pink), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .vault-header-sub {
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--silver);
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(123,47,255,0.2), rgba(255,45,120,0.2));
+      border: 1px solid rgba(123,47,255,0.5);
+      border-radius: 50px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, var(--purple) 50%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--silver);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--silver);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    /* ── RCTF FRAMEWORK BANNER ── */
+    .rctf-banner {
+      margin: 2rem auto;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+
+    .rctf-card {
+      background: linear-gradient(135deg, rgba(123,47,255,0.15), rgba(255,45,120,0.1));
+      border: 1px solid rgba(123,47,255,0.4);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .rctf-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .rctf-letters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .rctf-letter {
+      background: rgba(13,0,37,0.8);
+      border: 1px solid rgba(123,47,255,0.5);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      min-width: 120px;
+      transition: all 0.3s;
+    }
+
+    .rctf-letter:hover {
+      border-color: var(--purple);
+      box-shadow: 0 0 20px rgba(123,47,255,0.3);
+      transform: translateY(-3px);
+    }
+
+    .rctf-letter-big {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    .rctf-letter-word {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      color: var(--silver);
+      letter-spacing: 0.05em;
+    }
+
+    .rctf-desc {
+      font-size: 0.9rem;
+      color: var(--silver);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION ── */
+    .vault-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(123,47,255,0.4);
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--silver);
+      margin-top: 0.2rem;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PROMPT CARDS ── */
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .prompt-card {
+      background: var(--black-card);
+      border: 1px solid rgba(123,47,255,0.25);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prompt-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .prompt-card:hover {
+      border-color: rgba(123,47,255,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(123,47,255,0.2);
+    }
+
+    .prompt-card:hover::before { opacity: 1; }
+
+    .card-badge {
+      display: inline-block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .badge-purple { background: rgba(123,47,255,0.2); color: #b06aff; border: 1px solid rgba(123,47,255,0.3); }
+    .badge-pink { background: rgba(255,45,120,0.2); color: #ff6eb4; border: 1px solid rgba(255,45,120,0.3); }
+    .badge-gold { background: rgba(245,200,66,0.15); color: var(--gold); border: 1px solid rgba(245,200,66,0.3); }
+    .badge-silver { background: rgba(192,200,216,0.1); color: var(--silver); border: 1px solid rgba(192,200,216,0.2); }
+
+    .card-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--silver);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .prompt-box {
+      background: rgba(5,0,16,0.8);
+      border: 1px solid rgba(123,47,255,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      font-family: 'Inter', monospace;
+      font-size: 0.82rem;
+      color: #c0c8d8;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .prompt-box .rctf-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, rgba(123,47,255,0.2), rgba(255,45,120,0.2));
+      border: 1px solid rgba(123,47,255,0.4);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .copy-btn:hover {
+      background: linear-gradient(135deg, rgba(123,47,255,0.4), rgba(255,45,120,0.3));
+      border-color: var(--purple);
+    }
+
+    .copy-btn.copied {
+      background: linear-gradient(135deg, rgba(0,200,100,0.2), rgba(0,150,80,0.2));
+      border-color: rgba(0,200,100,0.4);
+      color: #00c864;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(123,47,255,0.4), rgba(255,45,120,0.4), transparent);
+      margin: 1rem 2rem;
+    }
+
+    /* ── FOOTER ── */
+    .vault-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(123,47,255,0.2);
+      background: rgba(13,0,37,0.6);
+    }
+
+    .footer-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--silver);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .footer-presenter {
+      font-size: 0.8rem;
+      color: rgba(192,200,216,0.5);
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--purple);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--pink); }
+
+    /* ── GLOW ORBS ── */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .orb1 { width: 400px; height: 400px; background: var(--purple); top: -100px; left: -100px; }
+    .orb2 { width: 300px; height: 300px; background: var(--pink); bottom: 10%; right: -100px; }
+    .orb3 { width: 200px; height: 200px; background: var(--gold); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .lock-card { padding: 2rem 1.5rem; }
+      .rctf-letters { gap: 0.5rem; }
+      .rctf-letter { min-width: 80px; padding: 0.8rem; }
+      .rctf-letter-big { font-size: 1.5rem; }
+      .hero-stats { gap: 1rem; }
+      .prompt-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Glow Orbs -->
+<div class="glow-orb orb1"></div>
+<div class="glow-orb orb2"></div>
+<div class="glow-orb orb3"></div>
+
+<!-- ════════════════════════════════
+     LOCK SCREEN
+════════════════════════════════ -->
+<div id="lockScreen">
+  <div class="lock-card">
+
+    <!-- Wordmark -->
+    <div class="wordmark">
+      <div class="wordmark-box">
+        <div class="wordmark-icon">⬡</div>
+        <div class="wordmark-text">Think<span>Box</span> AI</div>
+      </div>
+      <span class="wordmark-sub">Studios &nbsp;·&nbsp; MJUnlimited Essential Marketing</span>
+    </div>
+
+    <span class="lock-icon">🔐</span>
+    <h1 class="lock-title">The Prompt Vault™</h1>
+    <p class="lock-subtitle">RCTF FRAMEWORK EDITION</p>
+    <p class="lock-tagline">"Learn AI Like Your Business Depends On It"</p>
+
+    <div class="lock-input-wrap">
+      <input
+        class="lock-input"
+        id="passcodeInput"
+        type="password"
+        placeholder="ENTER ACCESS CODE"
+        autocomplete="off"
+        maxlength="20"
+      />
+    </div>
+    <button class="lock-btn" onclick="unlock()">🚀 UNLOCK THE VAULT</button>
+    <p class="lock-error" id="lockError">⚠️ Invalid passcode. Try again.</p>
+    <p class="lock-presenter">Presented by <strong>Mona Jackson-Ham</strong><br/>Founder & CEO, ThinkBox AI Studios</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     VAULT CONTENT
+════════════════════════════════ -->
+<div id="vaultContent">
+
+  <!-- Header -->
+  <header class="vault-header">
+    <div class="header-wordmark">
+      <div class="header-wordmark-box">
+        <span style="font-size:1rem;">⬡</span>
+        <span class="header-wordmark-text">Think<span>Box</span> AI Studios</span>
+      </div>
+    </div>
+    <div class="vault-header-title">The Prompt Vault™</div>
+    <div class="vault-header-sub">RCTF FRAMEWORK · POWERED BY THINKBOX AI STUDIOS</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">✦ Exclusive Access Granted ✦</div>
+    <h1>Your AI Arsenal<br/>Starts Here</h1>
+    <p>RCTF-structured prompts, plug-and-play scripts, automation playbooks, and training modules — everything you need to run your business, ministry, or brand on AI.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">AI Prompts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Use Cases</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RCTF Framework -->
+  <div class="rctf-banner">
+    <div class="rctf-card">
+      <div class="rctf-title">⬡ The RCTF Prompt Framework™ by Mona Jackson-Ham</div>
+      <div class="rctf-letters">
+        <div class="rctf-letter">
+          <span class="rctf-letter-big">R</span>
+          <span class="rctf-letter-word">Role</span>
+        </div>
+        <div class="rctf-letter">
+          <span class="rctf-letter-big">C</span>
+          <span class="rctf-letter-word">Context</span>
+        </div>
+        <div class="rctf-letter">
+          <span class="rctf-letter-big">T</span>
+          <span class="rctf-letter-word">Task</span>
+        </div>
+        <div class="rctf-letter">
+          <span class="rctf-letter-big">F</span>
+          <span class="rctf-letter-word">Format</span>
+        </div>
+      </div>
+      <p class="rctf-desc">Every prompt in this vault is engineered using the RCTF Framework™ — giving AI the <strong>Role</strong>, <strong>Context</strong>, <strong>Task</strong>, and <strong>Format</strong> it needs to deliver expert-level results every time.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 1: Business Prompts ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">💼</div>
+      <div>
+        <div class="section-title">Business Growth Prompts</div>
+        <div class="section-subtitle">Sales, outreach, offers & client acquisition</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Sales</span>
+        <div class="card-title">High-Converting Sales Email</div>
+        <div class="card-desc">Use this to write a sales email for any offer in under 60 seconds.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an expert copywriter who specializes in email marketing for service-based businesses. I run [BUSINESS NAME] and I offer [SERVICE/PRODUCT]. My ideal client is [TARGET AUDIENCE]. Write a compelling sales email with a subject line, opening hook, body that addresses their pain point, and a clear call-to-action to [DESIRED ACTION]. Format it as a ready-to-send email, conversational and no longer than 200 words.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Outreach</span>
+        <div class="card-title">Cold DM / LinkedIn Outreach</div>
+        <div class="card-desc">Land in inboxes and get responses with this power outreach script.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a business development expert who writes conversational, non-salesy outreach messages. I am [YOUR NAME], founder of [BUSINESS]. I want to reach out to [TARGET PERSON/ROLE] on [PLATFORM]. My goal is [OUTCOME — e.g. book a discovery call, collaborate, get a referral]. Write a short, warm DM (under 100 words) that references something genuine about them, creates curiosity, and ends with a soft CTA. Do not start with "Hey" or use emojis.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Offer</span>
+        <div class="card-title">Irresistible Offer Builder</div>
+        <div class="card-desc">Build a $1K–$10K offer that practically sells itself.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a premium offer strategist who helps service providers package their expertise into high-ticket offers. My business is [BUSINESS NAME]. I help [AUDIENCE] achieve [RESULT] through [METHOD]. My current price range is [RANGE]. Build me a complete offer breakdown including: a compelling name, what's included, bonuses, price anchor, and a one-sentence "what you get" statement. Format as a clean offer sheet.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">Strategy</span>
+        <div class="card-title">90-Day Business Growth Plan</div>
+        <div class="card-desc">Get a full strategic roadmap customized to your business in minutes.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a business growth strategist with expertise in online service businesses. My business is [NAME], I offer [SERVICES], my audience is [AUDIENCE], and my current monthly revenue is [RANGE]. Create a 90-day growth plan broken into 3 phases: (1) Foundation, (2) Momentum, (3) Scale. Each phase should include 3 specific action steps, one revenue-generating activity, and one metric to track. Format as a table.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 2: Content Creation ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">✍️</div>
+      <div>
+        <div class="section-title">Content Creation Prompts</div>
+        <div class="section-subtitle">Social media, captions, hooks & video scripts</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Instagram</span>
+        <div class="card-title">7-Day Content Calendar</div>
+        <div class="card-desc">Never run out of content ideas — get a full week in one prompt.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a social media strategist who specializes in content for personal brands and service businesses. My brand is [NAME], I am a [TITLE], and I serve [AUDIENCE]. My content pillars are [PILLAR 1], [PILLAR 2], [PILLAR 3]. Create a 7-day Instagram content calendar with: post type (Reel, Carousel, Static), topic, hook, caption (under 150 words), and 5 hashtags per day. Format as a table.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Hooks</span>
+        <div class="card-title">Scroll-Stopping Hook Generator</div>
+        <div class="card-desc">10 viral hooks for any topic that stop the scroll instantly.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a viral content strategist who writes hooks that stop the scroll. I am creating content about [TOPIC] for [AUDIENCE] on [PLATFORM]. Generate 10 scroll-stopping hooks using these formats: 2 curiosity hooks, 2 bold statement hooks, 2 story hooks, 2 number/stat hooks, and 2 controversy/opinion hooks. Make each under 15 words. Label each by type.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Video</span>
+        <div class="card-title">60-Second Reel Script</div>
+        <div class="card-desc">A complete reel script — hook, content, CTA — in under a minute.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a short-form video scriptwriter who creates viral, value-packed reels. I want to create a 60-second Instagram Reel about [TOPIC]. My audience is [AUDIENCE] and my goal is [GOAL — educate/sell/inspire/entertain]. Write a complete script with: a hook (first 3 seconds), 3 value points (10 seconds each), and a CTA (final 7 seconds). Include on-screen text suggestions in brackets.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">Email</span>
+        <div class="card-title">Email Newsletter Template</div>
+        <div class="card-desc">Write a binge-worthy newsletter your audience actually reads.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an email newsletter strategist who writes conversational, high-open-rate content. I run [BUSINESS], my audience is [AUDIENCE], and this week's topic is [TOPIC]. Write a newsletter with: a subject line (max 8 words), preview text (max 10 words), personal opening (2 sentences), main value section (3 tips or insights), a soft plug for [OFFER], and a sign-off. Keep it under 400 words. Warm, direct, no fluff.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 3: Ministry & Faith ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">✝️</div>
+      <div>
+        <div class="section-title">Ministry & Faith Prompts</div>
+        <div class="section-subtitle">Devotionals, sermons, outreach & community building</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">Devotional</span>
+        <div class="card-title">Daily Devotional Writer</div>
+        <div class="card-desc">Create a powerful devotional for any scripture in seconds.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a Christian devotional writer with a warm, encouraging, and biblically-grounded voice. Using [SCRIPTURE REFERENCE AND VERSE], write a daily devotional for [AUDIENCE — e.g., entrepreneurs, women, ministers]. Include: a title, 2-paragraph reflection connecting the scripture to everyday life, a practical application step, and a closing prayer (under 50 words). Format for a social media post or email.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Sermon</span>
+        <div class="card-title">Sermon Outline Builder</div>
+        <div class="card-desc">Structure a powerful sermon outline from any scripture passage.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a theologian and sermon preparation assistant with expertise in expository preaching. Using [SCRIPTURE PASSAGE], create a complete sermon outline for [AUDIENCE — e.g., congregation, youth group]. Include: a title, introduction (hook + scripture context), 3 main points each with sub-points and application, an altar call or response section, and closing. Format with clear headings and bullet points.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Outreach</span>
+        <div class="card-title">Ministry Event Promotion Copy</div>
+        <div class="card-desc">Fill your events with compelling faith-based promotional content.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a Christian marketing specialist who writes compelling promotional content for ministry events. My ministry is [MINISTRY NAME], and we are hosting [EVENT NAME] on [DATE] at [LOCATION/ONLINE]. The theme is [THEME] and it is for [AUDIENCE]. Write: a Facebook post, an Instagram caption with hashtags, a WhatsApp broadcast message, and a short email invite. Keep the tone warm, Spirit-led, and exciting.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 4: Automation Playbooks ── -->
+  <section class="vault-section">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div>
+        <div class="section-title">AI Automation Playbooks</div>
+        <div class="section-subtitle">Systems, workflows & automation blueprints</div>
+      </div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <span class="card-badge badge-purple">Automation</span>
+        <div class="card-title">Client Onboarding System</div>
+        <div class="card-desc">Build a complete automated client onboarding flow from scratch.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an operations systems expert who designs automated client onboarding workflows for service businesses. My business is [NAME], I offer [SERVICE], and my clients are [AUDIENCE]. Map out a complete automated onboarding system including: welcome email sequence (3 emails), intake form questions (10), first call agenda, client portal checklist, and 30-day check-in touchpoint. Format each section clearly with actionable steps.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-pink">Workflow</span>
+        <div class="card-title">Content Repurposing Machine</div>
+        <div class="card-desc">Turn one piece of content into 10+ assets automatically.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a content strategist who specializes in repurposing content across multiple platforms. I have this [BLOG POST / VIDEO TRANSCRIPT / PODCAST EPISODE]: [PASTE CONTENT]. Repurpose it into: 3 Instagram captions, 1 LinkedIn article intro (150 words), 5 Twitter/X threads, 1 email newsletter section, 3 short-form Reel hooks, and 1 Pinterest pin description. Maintain my brand voice: [DESCRIBE YOUR VOICE].
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-gold">AI Tools</span>
+        <div class="card-title">AI Tool Stack Builder</div>
+        <div class="card-desc">Get a customized AI tool stack for your exact business type.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are an AI implementation consultant who helps small business owners build lean, effective AI tool stacks. My business type is [TYPE], my team size is [SIZE], my monthly budget for tools is [BUDGET], and my biggest time drains are [LIST 3]. Recommend a complete AI tool stack with: tool name, purpose, monthly cost, and how I use it daily. Prioritize free/low-cost options first. Format as a table.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <span class="card-badge badge-silver">SOP</span>
+        <div class="card-title">AI-Powered SOP Creator</div>
+        <div class="card-desc">Document any business process as a repeatable SOP in minutes.</div>
+        <div class="prompt-box">
+          <span class="rctf-tag">RCTF PROMPT ✦</span><br/>
+          You are a business systems consultant who writes clear, actionable Standard Operating Procedures. I need an SOP for [PROCESS NAME] in my [BUSINESS TYPE]. This process involves [BRIEF DESCRIPTION]. The person following this SOP is [ROLE — e.g., VA, team member, or yourself]. Write a step-by-step SOP with: purpose statement, tools needed, step-by-step instructions (numbered), quality checkpoints, and a completion checklist. Keep language simple and clear.
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy Prompt</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <footer class="vault-footer">
+    <div class="footer-logo">Think<span>Box</span> AI Studios™</div>
+    <div class="footer-tagline">"Learn AI Like Your Business Depends On It"</div>
+    <div class="footer-presenter">Presented by Mona Jackson-Ham · Founder & CEO · MJUnlimited Essential Marketing & Web Design</div>
+    <div class="footer-links">
+      <a href="https://www.mjunlimited.com" target="_blank">mjunlimited.com</a>
+      <a href="https://mjunlimitedessentials.github.io/thinkbox-ai-intensive/" target="_blank">AI Intensive</a>
+      <a href="mailto:hello@mjunlimited.com">hello@mjunlimited.com</a>
+    </div>
+    <p style="font-size:0.7rem; color:rgba(192,200,216,0.3); margin-top:1.5rem;">© 2026 MJUnlimited Essential Marketing & ThinkBox AI Studios. All rights reserved. The RCTF Prompt Framework™ is proprietary IP of Mona Jackson-Ham.</p>
+  </footer>
+
+</div><!-- end vaultContent -->
+
+<script>
+  // ── Stars ──
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.classList.add('star');
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${Math.random()*100}%;
+      left:${Math.random()*100}%;
+      --d:${(Math.random()*4+2).toFixed(1)}s;
+      animation-delay:${(Math.random()*4).toFixed(1)}s;
+    `;
+    starsContainer.appendChild(s);
+  }
+
+  // ── Lock / Unlock ──
+  const PASSCODE = 'AISummit2026';
+
+  function unlock() {
+    const val = document.getElementById('passcodeInput').value.trim();
+    const err = document.getElementById('lockError');
+    if (val === PASSCODE) {
+      document.getElementById('lockScreen').style.display = 'none';
+      document.getElementById('vaultContent').style.display = 'block';
+      window.scrollTo(0, 0);
+    } else {
+      err.style.display = 'block';
+      err.style.animation = 'none';
+      void err.offsetWidth;
+      err.style.animation = 'shake 0.3s ease';
+    }
+  }
+
+  document.getElementById('passcodeInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') unlock();
+  });
+
+  // ── Copy Prompt ──
+  function copyPrompt(btn) {
+    const box = btn.previousElementSibling;
+    const text = box.innerText.replace('RCTF PROMPT ✦\n', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Prompt';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

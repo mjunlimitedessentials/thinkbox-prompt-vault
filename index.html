@@ -704,6 +704,215 @@
       .hero-stats { gap: 1rem; }
       .prompt-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── CATEGORY MENU ── */
+    .category-menu {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .category-menu-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .category-menu-eyebrow {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(123,47,255,0.2), rgba(255,45,120,0.2));
+      border: 1px solid rgba(123,47,255,0.4);
+      border-radius: 50px;
+      padding: 0.3rem 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .category-menu-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff 0%, var(--purple) 60%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .category-menu-sub {
+      font-size: 1rem;
+      color: var(--silver);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .category-tile {
+      background: rgba(13,0,37,0.7);
+      border: 1px solid rgba(123,47,255,0.2);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+
+    .category-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--tile-color-a, rgba(123,47,255,0.08)), var(--tile-color-b, rgba(255,45,120,0.04)));
+      opacity: 0;
+      transition: opacity 0.35s;
+      border-radius: inherit;
+    }
+
+    .category-tile:hover {
+      border-color: rgba(123,47,255,0.6);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(123,47,255,0.25), 0 0 0 1px rgba(123,47,255,0.3);
+    }
+
+    .category-tile:hover::before { opacity: 1; }
+
+    .tile-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(123,47,255,0.6));
+    }
+
+    .tile-count {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border-radius: 20px;
+      padding: 0.2rem 0.7rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: white;
+      margin-bottom: 0.7rem;
+    }
+
+    .tile-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .tile-desc {
+      font-size: 0.82rem;
+      color: var(--silver);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .tile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tile-tag {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.68rem;
+      color: var(--silver);
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .tile-arrow {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(123,47,255,0.15);
+      border: 1px solid rgba(123,47,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: all 0.3s;
+    }
+
+    .category-tile:hover .tile-arrow {
+      background: var(--purple);
+      border-color: var(--purple);
+      transform: translateX(3px);
+    }
+
+    .seo-strip {
+      background: rgba(13,0,37,0.5);
+      border-top: 1px solid rgba(123,47,255,0.15);
+      border-bottom: 1px solid rgba(123,47,255,0.15);
+      padding: 2rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .seo-strip-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .seo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .seo-tag {
+      background: rgba(123,47,255,0.1);
+      border: 1px solid rgba(123,47,255,0.25);
+      border-radius: 50px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      color: var(--silver-light);
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+
+    .seo-tag:hover {
+      background: rgba(123,47,255,0.25);
+      border-color: var(--purple);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .category-grid { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -776,7 +985,7 @@
     <p>RCTF-structured prompts, plug-and-play scripts, automation playbooks, and training modules — everything you need to run your business, ministry, or brand on AI.</p>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-number">20+</div>
+        <div class="stat-number">100</div>
         <div class="stat-label">AI Prompts</div>
       </div>
       <div class="stat">
@@ -816,9 +1025,167 @@
     </div>
   </div>
 
+
+  <!-- ── CATEGORY MENU ── -->
+  <section class="category-menu" aria-label="Browse all 100 AI prompt categories">
+    <div class="category-menu-header">
+      <div class="category-menu-eyebrow">✦ 100 Prompts · 8 Categories ✦</div>
+      <h2 class="category-menu-title">Browse the Full Vault</h2>
+      <p class="category-menu-sub">Every prompt is RCTF-engineered for expert-level AI outputs. Click any category to jump straight to your prompts.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <a class="category-tile" href="#section-business" onclick="document.querySelector('#section-business').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(245,200,66,0.1); --tile-color-b: rgba(123,47,255,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">📈</span>
+        <div class="tile-count">14 PROMPTS</div>
+        <div class="tile-title">Business Growth</div>
+        <div class="tile-desc">Scale your revenue, close more clients, and position yourself as the go-to expert in your niche.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Sales Emails</span>
+          <span class="tile-tag">Pricing</span>
+          <span class="tile-tag">Launch Strategy</span>
+          <span class="tile-tag">Partnerships</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-content" onclick="document.querySelector('#section-content').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(255,45,120,0.1); --tile-color-b: rgba(123,47,255,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">✍️</span>
+        <div class="tile-count">13 PROMPTS</div>
+        <div class="tile-title">Content Creation</div>
+        <div class="tile-desc">Scroll-stopping captions, viral reels, newsletters, and brand voice guides that make you unforgettable.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Instagram</span>
+          <span class="tile-tag">Carousels</span>
+          <span class="tile-tag">Hooks</span>
+          <span class="tile-tag">Brand Voice</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-ministry" onclick="document.querySelector('#section-ministry').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(123,47,255,0.1); --tile-color-b: rgba(245,200,66,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">✝️</span>
+        <div class="tile-count">11 PROMPTS</div>
+        <div class="tile-title">Ministry & Faith</div>
+        <div class="tile-desc">Anointed prayers, sermon outlines, youth lessons, and outreach campaigns rooted in scripture.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Sermons</span>
+          <span class="tile-tag">Prayer</span>
+          <span class="tile-tag">Youth Ministry</span>
+          <span class="tile-tag">Outreach</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-automation" onclick="document.querySelector('#section-automation').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(0,200,255,0.08); --tile-color-b: rgba(123,47,255,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">🤖</span>
+        <div class="tile-count">13 PROMPTS</div>
+        <div class="tile-title">AI Automation Playbooks</div>
+        <div class="tile-desc">Build systems that work while you sleep — CRMs, chatbots, email funnels, and content machines.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">CRM</span>
+          <span class="tile-tag">Email Funnels</span>
+          <span class="tile-tag">Chatbots</span>
+          <span class="tile-tag">Analytics</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-kids" onclick="document.querySelector('#section-kids').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(255,180,0,0.08); --tile-color-b: rgba(255,45,120,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">🎨</span>
+        <div class="tile-count">11 PROMPTS</div>
+        <div class="tile-title">Kids & Creative Education</div>
+        <div class="tile-desc">Coloring books, STEM packs, homeschool planners, and faith devotionals built for young minds.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Coloring Books</span>
+          <span class="tile-tag">STEM</span>
+          <span class="tile-tag">Homeschool</span>
+          <span class="tile-tag">Devotionals</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-claude" onclick="document.querySelector('#section-claude').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(245,200,66,0.08); --tile-color-b: rgba(123,47,255,0.08);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">⚡</span>
+        <div class="tile-count">16 PROMPTS</div>
+        <div class="tile-title">Claude AI Power Prompts</div>
+        <div class="tile-desc">Master-level command codes that turn Claude into your strategist, editor, researcher, and advisor.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Deep Research</span>
+          <span class="tile-tag">Editing</span>
+          <span class="tile-tag">Strategy</span>
+          <span class="tile-tag">Personas</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-author" onclick="document.querySelector('#section-author').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(255,45,120,0.08); --tile-color-b: rgba(245,200,66,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">📚</span>
+        <div class="tile-count">14 PROMPTS</div>
+        <div class="tile-title">Author & Publishing Vault</div>
+        <div class="tile-desc">Write, publish, and market your book — from Amazon KDP to literary agents to bestseller strategy.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">KDP</span>
+          <span class="tile-tag">Book Outline</span>
+          <span class="tile-tag">Query Letters</span>
+          <span class="tile-tag">Marketing</span>
+        </div>
+      </a>
+
+      <a class="category-tile" href="#section-podcast" onclick="document.querySelector('#section-podcast').scrollIntoView({behavior:'smooth'}); return false;" style="--tile-color-a: rgba(123,47,255,0.1); --tile-color-b: rgba(255,45,120,0.05);">
+        <div class="tile-arrow">↓</div>
+        <span class="tile-icon">🎙️</span>
+        <div class="tile-count">15 PROMPTS</div>
+        <div class="tile-title">Podcast Launch & Growth</div>
+        <div class="tile-desc">Launch, grow, monetize, and repurpose your podcast across every platform with AI precision.</div>
+        <div class="tile-tags">
+          <span class="tile-tag">Launch</span>
+          <span class="tile-tag">Sponsorships</span>
+          <span class="tile-tag">YouTube</span>
+          <span class="tile-tag">Community</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── SEO KEYWORD STRIP ── -->
+  <div class="seo-strip" aria-label="AI prompt topics and keywords">
+    <div class="seo-strip-title">✦ What You Can Build With These Prompts ✦</div>
+    <div class="seo-tags">
+      <span class="seo-tag">AI prompts for entrepreneurs</span>
+      <span class="seo-tag">ChatGPT business prompts</span>
+      <span class="seo-tag">Claude AI prompts</span>
+      <span class="seo-tag">prompt engineering for beginners</span>
+      <span class="seo-tag">AI for content creators</span>
+      <span class="seo-tag">AI for ministry</span>
+      <span class="seo-tag">AI for authors</span>
+      <span class="seo-tag">AI for podcasters</span>
+      <span class="seo-tag">RCTF framework prompts</span>
+      <span class="seo-tag">Black women entrepreneurs AI</span>
+      <span class="seo-tag">AI tools for small business</span>
+      <span class="seo-tag">AI for church leaders</span>
+      <span class="seo-tag">done-for-you AI prompts</span>
+      <span class="seo-tag">AI social media captions</span>
+      <span class="seo-tag">AI book writing prompts</span>
+      <span class="seo-tag">AI sales email prompts</span>
+      <span class="seo-tag">AI kids education prompts</span>
+      <span class="seo-tag">AI automation for coaches</span>
+      <span class="seo-tag">Mona Jackson-Ham AI</span>
+      <span class="seo-tag">ThinkBox AI Studios</span>
+      <span class="seo-tag">AI homeschool curriculum</span>
+      <span class="seo-tag">AI prayer generator</span>
+      <span class="seo-tag">AI sermon outline</span>
+      <span class="seo-tag">AI KDP publishing</span>
+    </div>
+  </div>
+
   <div class="divider"></div>
 
-  <!-- ── SECTION 1: Business Prompts ── -->
+  <!-- ── SECTION 1: Business Prompts ──
+  <div id="section-business" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">💼</div>
@@ -960,7 +1327,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 2: Content Creation ── -->
+  <!-- ── SECTION 2: Content Creation ──
+  <div id="section-content" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">✍️</div>
@@ -1102,7 +1470,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 3: Ministry & Faith ── -->
+  <!-- ── SECTION 3: Ministry & Faith ──
+  <div id="section-ministry" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">✝️</div>
@@ -1212,7 +1581,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 4: Automation Playbooks ── -->
+  <!-- ── SECTION 4: Automation Playbooks ──
+  <div id="section-automation" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">⚡</div>
@@ -1343,7 +1713,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 5: Kids & Creative Education ── -->
+  <!-- ── SECTION 5: Kids & Creative Education ──
+  <div id="section-kids" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">🎨</div>
@@ -1486,7 +1857,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 6: Claude AI Power Prompts ── -->
+  <!-- ── SECTION 6: Claude AI Power Prompts ──
+  <div id="section-claude" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">🤖</div>
@@ -1661,7 +2033,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 7: Author & Publishing Vault ── -->
+  <!-- ── SECTION 7: Author & Publishing Vault ──
+  <div id="section-author" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">📚</div>
@@ -1836,7 +2209,8 @@
 
   <div class="divider"></div>
 
-  <!-- ── SECTION 8: Podcast Launch & Growth Vault ── -->
+  <!-- ── SECTION 8: Podcast Launch & Growth Vault ──
+  <div id="section-podcast" style="scroll-margin-top: 80px;"></div> -->
   <section class="vault-section">
     <div class="section-header">
       <div class="section-icon">🎙️</div>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Build Your Website with Lovable — Complete Beginner Tutorial | ThinkBox Prompt Vault</title>
+<meta name="description" content="Step-by-step guide to building a professional website with Lovable AI. No coding required. Covers account setup, AI prompting, design, custom domain, SEO, and publishing."/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0d0d14;color:#e8e8f0;line-height:1.75}
+h1,h2,h3,h4{line-height:1.25;font-weight:700}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+h3{font-size:1.25rem;color:#c8b8ff}
+h4{font-size:1rem;color:#a0a0c0;text-transform:uppercase;letter-spacing:.08em}
+p{margin-bottom:1rem;color:#ccc8e0}
+a{color:#9b7fff;text-decoration:none}
+a:hover{text-decoration:underline}
+strong{color:#fff}
+code{background:#1e1e2e;color:#c8b8ff;padding:2px 7px;border-radius:5px;font-size:.9em;font-family:'Courier New',monospace}
+.container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+.top-banner{background:linear-gradient(135deg,#1a0a3e 0%,#2d1060 50%,#0f0f2a 100%);padding:3.5rem 1.5rem 3rem;text-align:center;border-bottom:1px solid #3a2a6e}
+.badge{display:inline-block;background:linear-gradient(90deg,#7c3aed,#ec4899);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:1.2rem}
+.top-banner h1{color:#fff;margin-bottom:.6rem}
+.subtitle{font-size:1.1rem;color:#b8a8e0;max-width:620px;margin:0 auto 1.6rem}
+.meta-info{font-size:.82rem;color:#7a6a9a}
+.toc-wrap{background:#13132a;border:1px solid #2a2050;border-radius:14px;padding:1.8rem 2rem;margin:2.5rem 0}
+.toc-list{list-style:none;counter-reset:toc}
+.toc-list li{counter-increment:toc;margin-bottom:.45rem;display:flex;align-items:baseline;gap:.5rem}
+.toc-list li::before{content:counter(toc);background:#2d1060;color:#c8a0ff;font-size:.75rem;font-weight:700;min-width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-list a{color:#b0a0d8;font-size:.95rem}
+.toc-list a:hover{color:#9b7fff}
+.step-section{padding:3rem 0 1.5rem;border-top:1px solid #1e1e38}
+.step-label{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,rgba(124,58,237,.13),rgba(236,72,153,.06));border:1px solid rgba(124,58,237,.31);border-radius:30px;padding:.3rem 1rem;font-size:.8rem;font-weight:700;color:#c8a0ff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
+.step-section h2{color:#fff;margin-bottom:1rem}
+.screenshot{background:linear-gradient(145deg,#16162c,#1e1e38);border:1px solid #2a2050;border-radius:12px;overflow:hidden;margin:1.5rem 0}
+.screenshot-bar{background:#1e1a38;padding:.55rem 1rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid #2a2050}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#ffbd2e}.dot.g{background:#28c840}
+.url-bar{background:#2a2050;color:#8878b8;font-size:.78rem;padding:2px 10px;border-radius:4px;margin-left:.6rem;font-family:'Courier New',monospace}
+.s-body{padding:1.4rem 1.6rem}
+.callout{border-radius:10px;padding:1rem 1.3rem;margin:1.2rem 0;display:flex;gap:.8rem;align-items:flex-start}
+.callout p{margin:0;font-size:.93rem}
+.callout.tip{background:#0f2a1a;border-left:4px solid #22c55e}
+.callout.note{background:#0f1a38;border-left:4px solid #3b82f6}
+.callout.warn{background:#2a1a0a;border-left:4px solid #f59e0b}
+.callout.star{background:#1a0a2e;border-left:4px solid #a855f7}
+.ci{font-size:1.3rem;flex-shrink:0;margin-top:.05rem}
+.sub-steps{list-style:none;counter-reset:sub;margin:1.2rem 0}
+.sub-steps li{counter-increment:sub;display:grid;grid-template-columns:2.2rem 1fr;gap:.8rem;margin-bottom:1rem;align-items:start}
+.sub-steps li::before{content:counter(sub);background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;font-weight:700;font-size:.85rem;width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.st{color:#ccc8e0}
+.prompt-card{background:#13132a;border:1px solid #3a2a6e;border-radius:12px;padding:1.2rem 1.4rem;margin:1rem 0}
+.plabel{font-size:.72rem;color:#7c6ab0;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+.ptext{font-family:'Courier New',monospace;font-size:.88rem;color:#d8c8ff;line-height:1.6;white-space:pre-wrap}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.pc{background:#13132a;border:1px solid #2a2050;border-radius:12px;padding:1.3rem;text-align:center}
+.pc.featured{border-color:#7c3aed;background:#1a0a3e}
+.pname{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#a0a0c0;margin-bottom:.4rem}
+.pprice{font-size:1.8rem;font-weight:800;color:#fff}
+.pperiod{font-size:.8rem;color:#7a6a9a}
+.pc ul{list-style:none;margin-top:.8rem;text-align:left}
+.pc ul li{font-size:.82rem;color:#b0a0d8;padding:.25rem 0}
+.pc ul li::before{content:"✓ ";color:#22c55e;font-weight:700}
+.checklist{list-style:none;margin:1rem 0}
+.checklist li{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px solid #1e1e38;color:#ccc8e0;font-size:.95rem}
+.checklist li::before{content:"☐";color:#7c3aed;font-size:1.1rem;flex-shrink:0}
+.df{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;position:relative}
+.ds{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;align-items:start;padding-bottom:1.4rem;position:relative}
+.dsn{width:2.5rem;height:2.5rem;border-radius:50%;background:#2d1060;border:2px solid #7c3aed;color:#c8a0ff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;position:relative}
+.ds::before{content:'';position:absolute;left:1.2rem;top:2.5rem;bottom:0;width:2px;background:#2a2050}
+.ds:last-child::before{display:none}
+.ds h3{color:#e8e0ff;font-size:1rem;margin-bottom:.3rem}
+.ds p{font-size:.9rem;margin-bottom:0}
+footer{background:#0a0a18;border-top:1px solid #1e1e38;padding:2.5rem 1.5rem;text-align:center;margin-top:4rem}
+footer p{color:#5a5a7a;font-size:.85rem;margin-bottom:.3rem}
+footer a{color:#7c5abf}
+.mockup-db{display:grid;grid-template-columns:190px 1fr;gap:0;min-height:260px}
+.mockup-sb{background:#1a1630;padding:1rem;border-right:1px solid #2a2050}
+.mnav{padding:.35rem .6rem;border-radius:6px;font-size:.8rem;color:#8878b8;margin-bottom:2px;cursor:default}
+.mnav.on{background:#2d1a60;color:#c8a0ff}
+.mockup-main{padding:1.2rem}
+.mprompt{background:#f9f6ff;border:2px solid rgba(124,58,237,.25);border-radius:10px;padding:1rem 1.2rem;color:#555;font-size:.9rem;margin:.8rem auto;max-width:540px;text-align:center}
+.mbtn{display:inline-block;padding:.45rem 1.2rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:default}
+.mbtn.pr{background:#7c3aed;color:#fff}
+.mpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.8rem}
+.mpcard{background:#2a2050;border-radius:8px;overflow:hidden}
+.mpthumb{height:70px}
+.mplabel{padding:.4rem .6rem;font-size:.75rem;color:#b0a0d8}
+.mockup-ed{display:grid;grid-template-columns:240px 1fr;min-height:280px;gap:0}
+.mchat{background:#1a1630;padding:1rem;border-right:1px solid #2a2050;display:flex;flex-direction:column;gap:.6rem}
+.cmsg{background:#2a2050;border-radius:8px;padding:.5rem .7rem;font-size:.75rem;color:#b0a0d8}
+.cmsg.ai{background:#1d1040;border-left:3px solid #7c3aed;color:#c8b8ff}
+.mprev{background:#f9fafb;display:flex;align-items:stretch;justify-content:stretch}
+.mtoolbar{background:#1e1a38;border-bottom:1px solid #2a2050;padding:.5rem 1rem;display:flex;gap:.5rem;align-items:center}
+.mtbtn{background:#2a2050;color:#b0a0d8;border-radius:6px;padding:.3rem .7rem;font-size:.75rem;cursor:default}
+.mtbtn.on{background:#7c3aed;color:#fff}
+@media(max-width:640px){.mockup-db,.mockup-ed{grid-template-columns:1fr}.mockup-sb{display:none}.mpgrid{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top-banner">
+<div style="max-width:900px;margin:0 auto">
+<div class="badge">ThinkBox Prompt Vault — Free Tutorial</div>
+<h1>Build Your Website with Lovable</h1>
+<p class="subtitle">A complete beginner-friendly guide — no coding required.<br>From your first idea to a live website with your own custom domain.</p>
+<p class="meta-info">By MJU Unlimited Essentials &nbsp;·&nbsp; Updated May 2026 &nbsp;·&nbsp; 15-min read</p>
+</div>
+</header>
+
+<main class="container">
+
+<section style="padding:2.5rem 0 1rem">
+<h2 style="color:#fff;margin-bottom:.8rem">What is Lovable?</h2>
+<p>Lovable is an <strong>AI-powered website builder</strong> that creates fully functional, professional websites just from your plain-English descriptions. No HTML, CSS, JavaScript, or any technical knowledge required.</p>
+<p>Think of it like having a professional web developer on call 24/7 — you describe what you want, and Lovable builds it in real time right in front of you.</p>
+<div class="callout star"><div class="ci">⭐</div><div><p><strong>Who is this for?</strong> Business owners, coaches, creators, ministry leaders, marketers — anyone who wants a professional website without paying a developer thousands of dollars or spending months learning to code.</p></div></div>
+
+<div class="toc-wrap">
+<h4>📋 What You Will Learn</h4>
+<ol class="toc-list">
+<li><a href="#step1">Create your free Lovable account</a></li>
+<li><a href="#step2">Understand the dashboard &amp; editor</a></li>
+<li><a href="#step3">Start your first project with AI prompts</a></li>
+<li><a href="#step4">Refine your design visually</a></li>
+<li><a href="#step5">Add pages, content &amp; images</a></li>
+<li><a href="#step6">Publish your website live</a></li>
+<li><a href="#step7">Connect a custom domain</a></li>
+<li><a href="#step8">Optimize for SEO</a></li>
+<li><a href="#step9">Pricing &amp; choosing a plan</a></li>
+<li><a href="#step10">Final launch checklist</a></li>
+</ol>
+</div>
+</section>
+
+<section class="step-section" id="step1">
+<div class="step-label">Step 1</div>
+<h2>Create Your Free Lovable Account</h2>
+<p>Getting started is completely free — no credit card required. You receive a set of free AI credits daily just to experiment.</p>
+<ol class="sub-steps">
+<li><div class="st"><strong>Go to lovable.dev</strong> in your browser (Chrome recommended).</div></li>
+<li><div class="st"><strong>Click "Get Started Free"</strong> on the homepage.</div></li>
+<li><div class="st"><strong>Sign up with Google</strong> (fastest) or enter your email and create a password.</div></li>
+<li><div class="st"><strong>Verify your email</strong> if prompted — check your inbox and click the link.</div></li>
+<li><div class="st">You will land on your <strong>Lovable Dashboard</strong> — this is your home base.</div></li>
+</ol>
+<div class="screenshot">
+<div class="screenshot-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url-bar">lovable.dev → Sign Up</div></div>
+<div class="s-body" style="text-align:center;padding:2rem">
+<div style="display:inline-block;background:#1a0a3e;border:1px solid #3a2a6e;border-radius:16px;padding:2rem 2.5rem;max-width:360px;width:100%">
+<div style="font-size:2rem;margin-bottom:.5rem">🧡</div>
+<h3 style="color:#fff;margin-bottom:.3rem;font-size:1.3rem">Welcome to Lovable</h3>
+<p style="font-size:.85rem;color:#a090c8;margin-bottom:1.5rem">Build your idea with AI — no code needed.</p>
+<div style="background:#2d1060;border-radius:8px;padding:.7rem 1rem;color:#fff;font-size:.9rem;margin-bottom:.6rem;cursor:default">🔵 Continue with Google</div>
+<div style="background:#2a2050;border-radius:8px;padding:.7rem 1rem;color:#b0a0d8;font-size:.9rem;cursor:default">✉️ Continue with Email</div>
+<p style="font-size:.75rem;color:#5a5a7a;margin-top:1rem;margin-bottom:0">Free plan includes daily AI credits — no card needed</p>
+</div>
+</div>
+</div>
+<div class="callout tip"><div class="ci">💡</div><div><p>Use <strong>"Continue with Google"</strong> — it's the fastest sign-in and you won't need to remember another password.</p></div></div>
+</section>
+<section class="step-section" id="step2">
+<div class="step-label">Step 2</div>
+<h2>Understand the Dashboard &amp; Editor</h2>
+<p>Once logged in you will see your <strong>Dashboard</strong> — the place where all your websites live. Here is a guided tour.</p>
+<div class="screenshot">
+<div class="screenshot-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url-bar">lovable.dev/dashboard</div></div>
+<div class="s-body" style="padding:0">
+<div class="mockup-db">
+<div class="mockup-sb">
+<div style="font-size:1.2rem;margin-bottom:1rem">🧡 Lovable</div>
+<div class="mnav on">🏠 Home</div>
+<div class="mnav">🔍 Search</div>
+<div class="mnav">📚 Resources</div>
+<div class="mnav">🔗 Connectors</div>
+<div style="margin-top:1rem;font-size:.7rem;color:#5a5a7a;text-transform:uppercase;letter-spacing:.06em">Projects</div>
+<div class="mnav" style="margin-top:.3rem">All Projects</div>
+<div class="mnav">⭐ Starred</div>
+<div class="mnav">🙋 Created by me</div>
+</div>
+<div class="mockup-main">
+<div style="font-size:1.2rem;font-weight:700;color:#222;text-align:center;margin-bottom:.8rem">Got an idea?</div>
+<div class="mprompt"><span style="color:#aaa;font-style:italic">Ask Lovable to build a landing page for my…</span><div style="display:flex;justify-content:flex-end;margin-top:.5rem;gap:.4rem"><span style="font-size:.75rem;color:#aaa">Build ▾</span><span style="background:#7c3aed;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem">↑</span></div></div>
+<div style="font-size:.78rem;color:#888;text-align:center;margin:.6rem 0">My projects</div>
+<div class="mpgrid">
+<div class="mpcard"><div class="mpthumb" style="background:linear-gradient(135deg,#1e3a5f,#0ea5e9)"></div><div class="mplabel">My Business Site</div></div>
+<div class="mpcard"><div class="mpthumb" style="background:linear-gradient(135deg,#4c1d95,#a855f7)"></div><div class="mplabel">Portfolio</div></div>
+<div class="mpcard"><div class="mpthumb" style="background:linear-gradient(135deg,#064e3b,#10b981)"></div><div class="mplabel">Landing Page</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3 style="margin-top:1.5rem">Key Areas Explained</h3>
+<ul style="list-style:none;margin:.8rem 0">
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">🏠 Home (the big prompt box)</strong> — Type your website idea here to start a brand-new project instantly.</li>
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">📁 All Projects</strong> — Every website you have ever built in Lovable lives here.</li>
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">📚 Resources</strong> — Templates, tutorials, and inspiration to help you build faster.</li>
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">🔗 Connectors</strong> — Link third-party tools: Stripe payments, databases, analytics, and more.</li>
+<li style="padding:.5rem 0"><strong style="color:#c8a0ff">⚙️ Settings (your avatar)</strong> — Manage account, billing, team members, and workspace settings.</li>
+</ul>
+<div class="callout note"><div class="ci">📘</div><div><p>Each <strong>project</strong> = one website. You can have many projects — one for your business site, one for a client, one for a landing page campaign, etc.</p></div></div>
+</section>
+<section class="step-section" id="step3">
+<div class="step-label">Step 3</div>
+<h2>Start Your First Project with AI Prompts</h2>
+<p>This is where the magic happens. You describe your website in plain English and Lovable builds it. The key is writing a <strong>clear, specific prompt</strong>.</p>
+<h3>What to Include in Your Starting Prompt</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;color:#ccc8e0">
+<li style="margin-bottom:.4rem"><strong>What type of site</strong> — landing page, portfolio, business website, online store, church site</li>
+<li style="margin-bottom:.4rem"><strong>Your business name &amp; what you do</strong></li>
+<li style="margin-bottom:.4rem"><strong>The look &amp; feel</strong> — modern, elegant, bold, minimalist, dark, colorful</li>
+<li style="margin-bottom:.4rem"><strong>Key sections needed</strong> — hero, about, services, pricing, testimonials, contact form</li>
+<li style="margin-bottom:.4rem"><strong>Colors or style references</strong> — "like Apple's website" or "purple and gold"</li>
+</ul>
+<h3>Example Prompts — Copy &amp; Adapt These</h3>
+<div class="prompt-card">
+<div class="plabel">🏪 Local Business Example</div>
+<div class="ptext">Create a professional website for a cleaning company called "Sparkle Pro Cleaning."
+Use a clean white and sky-blue color scheme.
+Include: a hero section with a bold headline and a "Get a Free Quote" button,
+a Services section showing residential, commercial, and deep cleaning,
+a testimonials section with 3 customer reviews,
+a simple pricing table with 3 tiers, and a contact form.
+The tone should be trustworthy, friendly, and professional.</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">🎨 Creative Portfolio Example</div>
+<div class="ptext">Build a sleek, dark portfolio website for a freelance graphic designer.
+Use black, white, and gold accents throughout.
+Include: a bold hero with the name "Alex Carter — Visual Designer",
+a portfolio grid showing 6 sample project thumbnails,
+an About Me section, a Skills list, and a contact form with social links.
+Make it look editorial and high-end.</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">⛪ Ministry / Church Example</div>
+<div class="ptext">Create a welcoming website for "New Life Community Church."
+Use warm, calming colors — cream, soft gold, and deep navy.
+Include: a hero with a welcome message and service times,
+an About Our Church section, a Sermons/Messages section,
+an Upcoming Events section, a Giving/Donate section, and a Contact page.
+The tone should be warm, faith-based, and inviting to first-time visitors.</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">🛒 Online Store / Coaching Example</div>
+<div class="ptext">Build a landing page for my online coaching business called "Elevate Your Life Coaching."
+Use a bold purple and white color scheme.
+Include: a hero section with my tagline "Transform Your Mindset, Transform Your Life",
+a benefits section listing 4 key outcomes clients get,
+a Meet the Coach section with a photo placeholder and bio,
+a 3-tier pricing/packages section, and a "Book a Free Call" button throughout.
+Make it feel premium, motivational, and conversion-focused.</div>
+</div>
+<ol class="sub-steps" style="margin-top:1.5rem">
+<li><div class="st">From your dashboard, <strong>click inside the large prompt box</strong> that says "Ask Lovable to build…"</div></li>
+<li><div class="st"><strong>Type or paste your prompt.</strong> Be descriptive — more detail = better results.</div></li>
+<li><div class="st">Make sure the mode selector says <strong>"Build"</strong> (not "Plan"). This makes Lovable actually create your site.</div></li>
+<li><div class="st"><strong>Press the ↑ button or hit Enter.</strong> Lovable starts building immediately.</div></li>
+<li><div class="st">Wait 20–60 seconds while Lovable generates your site. You'll see code being written on the left and a <strong>live preview on the right</strong>.</div></li>
+</ol>
+<div class="screenshot">
+<div class="screenshot-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url-bar">lovable.dev/projects/your-project — Editor View</div></div>
+<div class="s-body" style="padding:0">
+<div class="mtoolbar">
+<span style="font-size:.85rem;font-weight:600;color:#c8a0ff;margin-right:auto">My Business Site ▾</span>
+<span class="mtbtn on">👁 Preview</span>
+<span class="mtbtn">📄 Files</span>
+<span class="mtbtn">💻 Code</span>
+<span class="mtbtn">☁️ Deploy</span>
+<span style="background:#7c3aed;color:#fff;border-radius:6px;padding:.3rem .8rem;font-size:.78rem;font-weight:600;cursor:default">Publish</span>
+</div>
+<div class="mockup-ed">
+<div class="mchat">
+<div style="font-size:.72rem;color:#5a5a7a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Chat</div>
+<div class="cmsg">Create a landing page for my cleaning business with hero, services, testimonials, and a contact form…</div>
+<div class="cmsg ai">✅ Done! I built your landing page with a hero, 3 service cards, testimonials, and a contact form. What would you like to change?</div>
+<div style="flex:1"></div>
+<div style="background:#1e1a38;border:1px solid #3a2a6e;border-radius:8px;padding:.5rem .7rem;font-size:.75rem;color:#5a5a7a;font-style:italic">Ask Lovable to change anything…</div>
+<div style="display:flex;gap:.4rem;margin-top:.4rem">
+<span style="background:#2a2050;color:#b0a0d8;border-radius:20px;padding:.25rem .7rem;font-size:.72rem;cursor:default">Plan</span>
+<span style="background:#7c3aed;color:#fff;border-radius:20px;padding:.25rem .7rem;font-size:.72rem;cursor:default">Build ✓</span>
+</div>
+</div>
+<div class="mprev">
+<div style="width:100%">
+<div style="background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;padding:2rem 1.5rem;text-align:center">
+<div style="font-size:1.1rem;font-weight:700">✨ Sparkle Pro Cleaning</div>
+<div style="font-size:.85rem;opacity:.85;margin:.3rem 0">Your Home, Sparkling Clean</div>
+<div style="background:#fff;color:#7c3aed;border-radius:8px;padding:.4rem 1.2rem;display:inline-block;font-size:.8rem;font-weight:700;margin-top:.6rem;cursor:default">Get a Free Quote</div>
+</div>
+<div style="padding:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem">
+<div style="background:#f3f0ff;border-radius:8px;padding:.7rem;text-align:center;font-size:.75rem;color:#555"><div style="font-size:1.2rem">🏠</div>Residential</div>
+<div style="background:#f3f0ff;border-radius:8px;padding:.7rem;text-align:center;font-size:.75rem;color:#555"><div style="font-size:1.2rem">🏢</div>Commercial</div>
+<div style="background:#f3f0ff;border-radius:8px;padding:.7rem;text-align:center;font-size:.75rem;color:#555"><div style="font-size:1.2rem">✨</div>Deep Clean</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout tip"><div class="ci">💡</div><div><p><strong>Pro Tip:</strong> After the first build, you can keep chatting to refine it. Say things like "Make the hero headline bigger," "Change the color to navy blue," or "Add a FAQ section at the bottom."</p></div></div>
+</section>
+<section class="step-section" id="step4">
+<div class="step-label">Step 4</div>
+<h2>Refine Your Design Visually</h2>
+<p>Don't like a font? Want to change a color? You have two easy ways to make changes — no code needed.</p>
+<h3>Option A — Chat with the AI</h3>
+<p>Simply type your change request in the chat panel on the left, just like texting a designer. Examples:</p>
+<div class="prompt-card">
+<div class="plabel">💬 Refinement Prompt Examples</div>
+<div class="ptext">"Change the background of the hero to dark navy blue."
+"Make all the buttons rounded with a gradient from purple to pink."
+"Replace the placeholder logo text with a flame emoji and 'BrandName'."
+"Add a sticky navigation bar at the top with links: Home, Services, About, Contact."
+"Move the testimonials section above the pricing section."
+"Make the fonts bigger and easier to read on mobile."</div>
+</div>
+<h3 style="margin-top:1.5rem">Option B — Visual Edits Mode (Point &amp; Click)</h3>
+<p>For quick styling changes, use the built-in visual editor — completely free to use within daily limits.</p>
+<ol class="sub-steps">
+<li><div class="st">In the prompt box at the bottom-left, click the <strong>"Visual edits"</strong> button (the cursor icon).</div></li>
+<li><div class="st">Your live preview becomes <strong>clickable</strong> — hover over any element and it highlights in purple.</div></li>
+<li><div class="st"><strong>Click any element</strong> (text, button, image, section) to select it.</div></li>
+<li><div class="st">A sidebar panel appears where you can change <strong>colors, fonts, padding, size, and text</strong> directly.</div></li>
+<li><div class="st">Hold <strong>Ctrl (Windows) or Cmd (Mac)</strong> to select multiple elements at once.</div></li>
+<li><div class="st">Click <strong>Send</strong> when satisfied — your changes apply instantly.</div></li>
+</ol>
+<div class="callout tip"><div class="ci">💡</div><div><p><strong>Visual edits are free!</strong> You get 100 free visual edits per day. Use these for small styling tweaks and save your AI credits for bigger structural changes.</p></div></div>
+<h3 style="margin-top:1.5rem">Undoing Mistakes — The Revert Button</h3>
+<p>Made a change you don't like? Every single AI response has a <strong>Revert</strong> option. Click the three-dot menu (⋯) next to any chat message and select "Revert" to go back to that version instantly.</p>
+<div class="callout warn"><div class="ci">⚠️</div><div><p>Always <strong>test on mobile view</strong> before publishing! Click the mobile icon in the top toolbar to preview how your site looks on a phone screen.</p></div></div>
+</section>
+
+<section class="step-section" id="step5">
+<div class="step-label">Step 5</div>
+<h2>Add Pages, Content &amp; Images</h2>
+<h3>Adding New Pages</h3>
+<p>To add a new page (like an About page or Blog), just ask Lovable in the chat:</p>
+<div class="prompt-card">
+<div class="plabel">💬 Adding Pages</div>
+<div class="ptext">"Add an About page with sections for our story, our team, and our values."
+"Create a Contact page with a contact form, phone number, address, and map embed."
+"Add a Blog page with a grid of 3 sample blog post cards."
+"Create a Services page that lists all 5 of our services in detail with pricing."</div>
+</div>
+<h3 style="margin-top:1.5rem">Replacing Placeholder Images</h3>
+<p>Lovable fills your site with placeholder images. To replace them:</p>
+<ol class="sub-steps">
+<li><div class="st">Use <strong>Visual Edits mode</strong> — click any image in the preview and upload your own from your computer.</div></li>
+<li><div class="st">Or paste an image URL from a free stock photo site like <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash.com</a> or <a href="https://pexels.com" target="_blank" rel="noopener">Pexels.com</a> into the image field.</div></li>
+<li><div class="st">For AI-generated images, click any image in visual edits mode and choose <strong>"Generate with AI"</strong> — describe the image you want.</div></li>
+</ol>
+<h3 style="margin-top:1.5rem">Adding Real Business Info</h3>
+<p>Once the structure looks good, update all placeholder text with your real content:</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;color:#ccc8e0">
+<li style="margin-bottom:.3rem">Real business name, tagline, and description</li>
+<li style="margin-bottom:.3rem">Your actual phone number, email, and address</li>
+<li style="margin-bottom:.3rem">Real service names, descriptions, and prices</li>
+<li style="margin-bottom:.3rem">Your own photos or brand images</li>
+<li style="margin-bottom:.3rem">Social media links (Instagram, Facebook, LinkedIn, etc.)</li>
+</ul>
+<div class="callout tip"><div class="ci">💡</div><div><p>You can paste all your content into one big prompt: <em>"Update the site with my real business info: Name is [X], phone is [Y], services are [Z]…"</em> Lovable will fill it all in for you.</p></div></div>
+</section>
+<section class="step-section" id="step6">
+<div class="step-label">Step 6</div>
+<h2>Publish Your Website Live</h2>
+<p>When your site looks great, it's time to go live. Publishing in Lovable takes about 30 seconds.</p>
+<ol class="sub-steps">
+<li><div class="st">In the editor, click the <strong>purple "Publish" button</strong> in the top-right corner.</div></li>
+<li><div class="st">The Publish modal opens. Review your <strong>website URL</strong> — by default it will be something like <code>your-project-name.lovable.app</code>. You can customize this slug.</div></li>
+<li><div class="st">Configure <strong>website access</strong> — on free/pro plans this is public (anyone with the link can see it). Business plans can restrict to workspace members only.</div></li>
+<li><div class="st">Add your <strong>site title and description</strong> (these show up in Google search results — very important for SEO!).</div></li>
+<li><div class="st">Upload a <strong>favicon</strong> (the small icon in browser tabs) — ideally your logo.</div></li>
+<li><div class="st">Click <strong>"Run Security Check"</strong> — Lovable will scan for common security issues before you go live.</div></li>
+<li><div class="st">Click the big <strong>"Publish" button</strong>. In 30–60 seconds your site is live!</div></li>
+<li><div class="st">You'll get a pop-up with your live link. <strong>Share it, test it, celebrate!</strong> 🎉</div></li>
+</ol>
+<div class="screenshot">
+<div class="screenshot-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url-bar">Publish Modal</div></div>
+<div class="s-body" style="text-align:center;padding:1.5rem">
+<div style="display:inline-block;background:#1a0a3e;border:1px solid #3a2a6e;border-radius:16px;padding:1.5rem 2rem;max-width:420px;width:100%;text-align:left">
+<h3 style="color:#fff;font-size:1.1rem;margin-bottom:1.2rem;text-align:center">🚀 Publish Your Project</h3>
+<div style="margin-bottom:1rem">
+<div style="font-size:.72rem;color:#7a6a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Website URL</div>
+<div style="background:#2a2050;border-radius:8px;padding:.5rem .8rem;font-size:.82rem;color:#c8a0ff;font-family:'Courier New',monospace">my-cleaning-business.lovable.app</div>
+</div>
+<div style="margin-bottom:1rem">
+<div style="font-size:.72rem;color:#7a6a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Site Title</div>
+<div style="background:#2a2050;border-radius:8px;padding:.5rem .8rem;font-size:.82rem;color:#e8e0ff">Sparkle Pro Cleaning | Professional Cleaning Services</div>
+</div>
+<div style="margin-bottom:1rem">
+<div style="font-size:.72rem;color:#7a6a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Meta Description</div>
+<div style="background:#2a2050;border-radius:8px;padding:.5rem .8rem;font-size:.78rem;color:#b0a0d8">Professional residential and commercial cleaning services. Get a free quote today.</div>
+</div>
+<div style="display:flex;gap:.6rem;margin-top:1.2rem">
+<div style="flex:1;background:#2a2050;color:#b0a0d8;border-radius:8px;padding:.5rem;font-size:.8rem;text-align:center;cursor:default">🔒 Security Check</div>
+<div style="flex:1;background:#7c3aed;color:#fff;border-radius:8px;padding:.5rem;font-size:.8rem;font-weight:700;text-align:center;cursor:default">🚀 Publish</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout note"><div class="ci">📘</div><div><p><strong>Important:</strong> Future changes do NOT automatically update your live site. After editing, click <strong>Publish → Update</strong> to push new changes live. Think of it like saving a document — you choose when to publish updates.</p></div></div>
+</section>
+<section class="step-section" id="step7">
+<div class="step-label">Step 7</div>
+<h2>Connect a Custom Domain</h2>
+<p>A custom domain turns <code>yoursite.lovable.app</code> into <code>www.yourbusiness.com</code> — making your site look professional and trustworthy. <strong>Custom domains require a paid plan.</strong></p>
+<div class="callout star"><div class="ci">⭐</div><div><p>A custom domain is one of the best investments for your online presence. It builds brand credibility, improves Google search rankings, and makes your site memorable.</p></div></div>
+<h3>Option A — Buy a Domain Through Lovable (Easiest)</h3>
+<p>Lovable can register a domain for you and configure everything automatically — no technical setup required.</p>
+<div class="df">
+<div class="ds"><div class="dsn">1</div><div><h3>Open Domain Settings</h3><p>In your project, go to <strong>Settings → Domains</strong>, or click the Publish modal → Custom domain link.</p></div></div>
+<div class="ds"><div class="dsn">2</div><div><h3>Click "Buy New Domain"</h3><p>Search for your desired domain name. You'll see pricing (typically $10–$20/year for .com). Premium domains cost more.</p></div></div>
+<div class="ds"><div class="dsn">3</div><div><h3>Review Your Order</h3><p>Choose your registration term (1–10 years). Enable <strong>auto-renew</strong> to prevent your domain from expiring accidentally.</p></div></div>
+<div class="ds"><div class="dsn">4</div><div><h3>Enter Registration Details</h3><p>Fill in your contact information as required by ICANN (the global domain authority). Your privacy is protected automatically by WHOIS privacy.</p></div></div>
+<div class="ds"><div class="dsn">5</div><div><h3>Complete Payment via Stripe</h3><p>Lovable processes payment securely through Stripe. Once confirmed, your domain is registered and DNS is configured <em>automatically</em>.</p></div></div>
+<div class="ds"><div class="dsn">6</div><div><h3>Wait for "Live" Status</h3><p>Setup completes in a few minutes (up to a few hours). When your domain shows <strong>Live</strong>, your site is accessible at your new domain. 🎉</p></div></div>
+</div>
+<h3>Option B — Connect a Domain You Already Own</h3>
+<p>If you already have a domain from GoDaddy, Namecheap, Google Domains, or elsewhere, you can connect it manually.</p>
+<ol class="sub-steps">
+<li><div class="st">In <strong>Settings → Domains</strong>, click <strong>"Connect Domain"</strong>.</div></li>
+<li><div class="st">Type in your existing domain name (e.g., <code>mybusiness.com</code>).</div></li>
+<li><div class="st">Lovable will detect your domain provider and may be able to <strong>connect automatically</strong> via Entri. Click Authorize if prompted.</div></li>
+<li><div class="st">If automatic setup does not work, choose <strong>Manual Setup</strong> — Lovable gives you two DNS records to add: an <strong>A record</strong> and a <strong>TXT record</strong>.</div></li>
+<li><div class="st">Log into your domain provider (GoDaddy, Namecheap, etc.), go to <strong>DNS Settings</strong>, and add both records exactly as shown.</div></li>
+<li><div class="st">Click <strong>Done</strong> in Lovable. DNS changes can take <strong>up to 72 hours</strong> to propagate worldwide, but usually complete within a few hours.</div></li>
+<li><div class="st">When the domain shows <strong>Live</strong> status, you're done!</div></li>
+</ol>
+<div class="screenshot">
+<div class="screenshot-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url-bar">Project → Settings → Domains</div></div>
+<div class="s-body">
+<div style="background:#1a1630;border-radius:10px;padding:1.2rem">
+<div style="font-size:.72rem;color:#5a5a7a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem">Your Domains</div>
+<div style="background:#2a2050;border-radius:8px;padding:.7rem 1rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.8rem">
+<div style="flex:1"><div style="font-size:.85rem;color:#fff">my-project.lovable.app</div><div style="font-size:.72rem;color:#5a5a7a">Default URL (always active)</div></div>
+<span style="background:#1d4020;color:#22c55e;border-radius:20px;padding:.2rem .7rem;font-size:.72rem;font-weight:700">● Live</span>
+</div>
+<div style="background:#1d1040;border:1px dashed #3a2a6e;border-radius:8px;padding:.7rem 1rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.8rem">
+<div style="flex:1"><div style="font-size:.85rem;color:#7a6a9a">No custom domain connected yet</div></div>
+<div style="background:#7c3aed;color:#fff;border-radius:6px;padding:.3rem .8rem;font-size:.78rem;font-weight:600;cursor:default">+ Add Domain</div>
+</div>
+<div style="display:flex;gap:.6rem;margin-top:.8rem">
+<div style="flex:1;background:#2d1060;border-radius:8px;padding:.6rem;text-align:center;font-size:.8rem;color:#c8a0ff;cursor:default">🛒 Buy New Domain</div>
+<div style="flex:1;background:#2a2050;border-radius:8px;padding:.6rem;text-align:center;font-size:.8rem;color:#b0a0d8;cursor:default">🔗 Connect Existing</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout warn"><div class="ci">⚠️</div><div><p>You must <strong>publish your project first</strong> before your custom domain can start serving your site. The domain will show "Ready" until you publish.</p></div></div>
+<div class="callout note"><div class="ci">📘</div><div><p><strong>What are A records and TXT records?</strong> These are instructions in your domain's settings that tell the internet "when someone visits my domain, show them the Lovable website." Your domain registrar (GoDaddy, Namecheap, etc.) is where you add these — just look for "DNS Settings" or "DNS Management."</p></div></div>
+</section>
+<section class="step-section" id="step8">
+<div class="step-label">Step 8</div>
+<h2>Optimize for SEO (Get Found on Google)</h2>
+<p>SEO (Search Engine Optimization) is what helps your website show up when people search Google for your type of business. Lovable has built-in tools to help.</p>
+<h3>Basic SEO Setup in Lovable</h3>
+<ol class="sub-steps">
+<li><div class="st"><strong>Set a great Page Title</strong> — In the Publish modal, write a clear title like <em>"Sparkle Pro Cleaning | Chicago Residential Cleaning Service"</em>. Include your city and main service for local SEO.</div></li>
+<li><div class="st"><strong>Write a meta description</strong> — A 1–2 sentence summary of your page that appears in Google search results. Make it compelling and include a keyword: <em>"Professional residential and commercial cleaning in Chicago. Book online and get 10% off your first clean."</em></div></li>
+<li><div class="st"><strong>Upload a Social Share Image</strong> — When someone shares your link on social media, this image appears. Use your logo or a branded graphic (1200×630px is the ideal size).</div></li>
+<li><div class="st"><strong>Run the SEO Review</strong> — In the Publish modal, click <strong>"Run SEO Review"</strong>. Lovable checks your site for common SEO issues and gives you suggestions to fix them.</div></li>
+<li><div class="st"><strong>Connect Google Search Console</strong> (after publishing with a custom domain) — Lovable guides you through verifying your site with Google so it gets indexed faster.</div></li>
+</ol>
+<h3 style="margin-top:1.5rem">Ask Lovable to Improve Your SEO</h3>
+<div class="prompt-card">
+<div class="plabel">💬 SEO Improvement Prompts</div>
+<div class="ptext">"Add proper heading structure (H1, H2, H3) to improve SEO throughout the site."
+"Add alt text descriptions to all images on the site."
+"Create a dedicated page for each of my main services to improve search rankings."
+"Add a FAQ section about our cleaning services — use common search questions as the questions."
+"Make the page load faster by optimizing the layout."</div>
+</div>
+<div class="callout tip"><div class="ci">💡</div><div><p><strong>Local SEO tip:</strong> Include your city name naturally throughout your site — in the hero headline, in service descriptions, and in the footer. This helps you rank for local searches like "plumber in Dallas" or "bakery near me."</p></div></div>
+</section>
+
+<section class="step-section" id="step9">
+<div class="step-label">Step 9</div>
+<h2>Pricing &amp; Choosing the Right Plan</h2>
+<p>Lovable has several plans to match different needs and budgets. Here is a breakdown to help you choose:</p>
+<div class="pricing-grid">
+<div class="pc">
+<div class="pname">Free</div>
+<div class="pprice">$0</div>
+<div class="pperiod">/ month</div>
+<ul>
+<li>Limited daily AI credits</li>
+<li>1 published project</li>
+<li>yoursite.lovable.app URL</li>
+<li>Basic features</li>
+<li>Great for testing</li>
+</ul>
+</div>
+<div class="pc featured">
+<div class="pname">Pro ⭐ Most Popular</div>
+<div class="pprice">$20</div>
+<div class="pperiod">/ month</div>
+<ul>
+<li>More AI credits per month</li>
+<li>Unlimited projects</li>
+<li>Custom domain support</li>
+<li>GitHub sync</li>
+<li>Priority support</li>
+</ul>
+</div>
+<div class="pc">
+<div class="pname">Business</div>
+<div class="pprice">$50</div>
+<div class="pperiod">/ month</div>
+<ul>
+<li>Even more AI credits</li>
+<li>Team collaboration</li>
+<li>Private publishing</li>
+<li>Branded app URLs</li>
+<li>Advanced analytics</li>
+</ul>
+</div>
+</div>
+<div class="callout star"><div class="ci">⭐</div><div><p><strong>Recommendation for most beginners:</strong> Start on the <strong>Free plan</strong> to build and test your site. When you're ready to go live with a custom domain, upgrade to <strong>Pro</strong>. It pays for itself if even one extra customer finds you online.</p></div></div>
+<h3 style="margin-top:1rem">What You Get With Each Plan</h3>
+<ul style="list-style:none;margin:.8rem 0">
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">Free Plan</strong> — Perfect for experimenting, learning, and testing ideas. Great for students and hobbyists.</li>
+<li style="padding:.5rem 0;border-bottom:1px solid #1e1e38"><strong style="color:#c8a0ff">Pro Plan</strong> — The sweet spot for small business owners, freelancers, and creators who need a real website with a custom domain.</li>
+<li style="padding:.5rem 0"><strong style="color:#c8a0ff">Business Plan</strong> — Best for agencies managing multiple client sites, or teams where several people are collaborating.</li>
+</ul>
+</section>
+<section class="step-section" id="step10">
+<div class="step-label">Step 10</div>
+<h2>Final Launch Checklist ✅</h2>
+<p>Before you share your website with the world, run through this checklist to make sure everything is polished and professional.</p>
+<h3>Content &amp; Design</h3>
+<ul class="checklist">
+<li>All placeholder text has been replaced with real business information</li>
+<li>Your real phone number, email, and address are displayed correctly</li>
+<li>All placeholder images have been replaced with real photos or branded visuals</li>
+<li>Your logo (or business name) appears clearly in the header/navigation</li>
+<li>Every page has a clear headline that tells visitors what you do</li>
+<li>There is at least one clear call-to-action button (Book Now, Contact Us, Get a Quote, etc.)</li>
+<li>All links work — navigation, buttons, and social media links</li>
+<li>The contact form works and sends to the correct email</li>
+</ul>
+<h3 style="margin-top:1.5rem">Mobile &amp; Performance</h3>
+<ul class="checklist">
+<li>Site looks great on mobile (click the phone icon in the Lovable toolbar to preview)</li>
+<li>Text is readable on small screens — no tiny fonts or overflowing content</li>
+<li>Images load quickly and are not blurry</li>
+<li>Navigation works properly on mobile (hamburger menu if applicable)</li>
+</ul>
+<h3 style="margin-top:1.5rem">SEO &amp; Metadata</h3>
+<ul class="checklist">
+<li>Page title is set with your business name and main service/location</li>
+<li>Meta description is written (1–2 compelling sentences with a keyword)</li>
+<li>Favicon (tab icon) is set — ideally your logo</li>
+<li>Social share image is uploaded (shows when link is shared on social media)</li>
+<li>Lovable SEO Review has been run and major issues are resolved</li>
+</ul>
+<h3 style="margin-top:1.5rem">Domain &amp; Publishing</h3>
+<ul class="checklist">
+<li>Site is published and the live URL works correctly</li>
+<li>Custom domain is connected and shows "Live" status (paid plans)</li>
+<li>Both www and non-www versions of your domain redirect correctly</li>
+<li>SSL certificate is active (you should see the padlock icon in the browser — Lovable handles this automatically)</li>
+</ul>
+<h3 style="margin-top:1.5rem">After Launch</h3>
+<ul class="checklist">
+<li>Share your new website on social media</li>
+<li>Add your website URL to your business cards, email signature, and all social profiles</li>
+<li>Submit your site to Google Search Console (Lovable guides you through this)</li>
+<li>Create a Google Business Profile listing if you serve local customers</li>
+<li>Set a monthly reminder to review and update your site content</li>
+</ul>
+<div class="callout star"><div class="ci">⭐</div><div><p>Congratulations! You now have a fully professional website live on the internet. Remember — your website is never truly "done." Keep it updated with fresh content, new offers, and current information to get the most out of it.</p></div></div>
+</section>
+
+<section style="padding:3rem 0 1rem;border-top:1px solid #1e1e38">
+<h2 style="color:#fff;margin-bottom:1rem">Quick Reference — Prompt Templates</h2>
+<p>Bookmark these prompts to use whenever you need them in Lovable:</p>
+<div class="prompt-card">
+<div class="plabel">🆕 Starting a New Site</div>
+<div class="ptext">"Create a [type of website] for [business name]. 
+[Business description — what you do and who you serve].
+Color scheme: [colors]. Style: [modern/elegant/bold/minimalist].
+Sections needed: hero with CTA, [section 2], [section 3], contact form.
+Target audience: [describe your ideal customer]."</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">✏️ Updating Existing Content</div>
+<div class="ptext">"Update the website with the following real information:
+Business name: [X]
+Tagline: [X]  
+Phone: [X]
+Email: [X]
+Address: [X]
+Services: [list them]
+About us: [your story in 2-3 sentences]"</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">🎨 Style Changes</div>
+<div class="ptext">"Redesign the color scheme to use [color 1] and [color 2].
+Make the fonts larger and more readable.
+Add more white space between sections.
+Make all buttons use a gradient from [color A] to [color B] with rounded corners."</div>
+</div>
+<div class="prompt-card">
+<div class="plabel">📱 Mobile Fixes</div>
+<div class="ptext">"Fix the mobile layout — some text is overflowing the screen.
+Make the hero section stack vertically on mobile.
+Ensure the navigation collapses into a hamburger menu on small screens.
+Make all images responsive so they don't overflow their containers."</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div style="max-width:900px;margin:0 auto">
+<div style="font-size:1.5rem;margin-bottom:.5rem">🧡</div>
+<p style="color:#b0a0d8;font-size:.95rem;margin-bottom:.5rem"><strong style="color:#fff">ThinkBox Prompt Vault</strong></p>
+<p>Part of the MJU Unlimited Essentials resource library — AI tools, prompts, and tutorials for creators &amp; business owners.</p>
+<p>Visit us at <a href="https://mjunlimitedessentials.github.io/thinkbox-prompt-vault/" target="_blank" rel="noopener">ThinkBox Prompt Vault</a></p>
+<p style="margin-top:1rem;font-size:.78rem;color:#3a3a5a">Tutorial created May 2026 · All Lovable screenshots are UI mockups for illustration purposes · Pricing shown is approximate and subject to change — check lovable.dev for current pricing.</p>
+</div>
+</footer>
+
+</body>
+</html>

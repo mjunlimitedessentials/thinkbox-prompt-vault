@@ -945,12 +945,41 @@
     <p class="lock-subtitle">RCTF FRAMEWORK EDITION</p>
     <p class="lock-tagline">"Learn AI Like Your Business Depends On It"</p>
 
+    <!-- What's inside -->
+    <div style="background:rgba(123,47,255,0.15);border:1px solid rgba(123,47,255,0.4);border-radius:12px;padding:1rem 1.2rem;margin:1rem 0 1.2rem;text-align:left;">
+      <p style="color:#f5c842;font-weight:800;font-size:0.8rem;letter-spacing:1px;margin-bottom:0.6rem;">✦ WHAT'S INSIDE</p>
+      <p style="color:#e2e8f0;font-size:0.82rem;line-height:1.7;margin:0;">
+        ✅ 100 RCTF-engineered AI prompts<br/>
+        ✅ 8 categories: Business, Content, Ministry, Automation & more<br/>
+        ✅ Claude AI Power Prompts — expert-level command codes<br/>
+        ✅ Copy-paste ready — no prompt engineering needed<br/>
+        ✅ Lifetime access · Instant delivery
+      </p>
+    </div>
+
+    <!-- Price + CTA -->
+    <a href="https://buy.stripe.com/eVq5kC8pxejR8Fg31XaVa0n" 
+       target="_blank"
+       onclick="trackStripeClick()"
+       style="display:block;background:linear-gradient(135deg,#f72585,#7b2fff);color:#fff;font-size:1.1rem;font-weight:900;padding:18px 30px;border-radius:50px;text-decoration:none;text-align:center;margin:0.5rem 0 0.4rem;letter-spacing:0.5px;box-shadow:0 8px 30px rgba(247,37,133,0.4);transition:transform 0.2s;">
+      🔓 Get Instant Access — $97
+    </a>
+    <p style="color:rgba(192,200,216,0.5);font-size:0.72rem;margin:0.3rem 0 1.2rem;">One-time payment · Secure checkout via Stripe</p>
+
+    <!-- Divider -->
+    <div style="display:flex;align-items:center;gap:10px;margin:1rem 0;">
+      <div style="flex:1;height:1px;background:rgba(123,47,255,0.3);"></div>
+      <span style="color:rgba(192,200,216,0.4);font-size:0.72rem;letter-spacing:1px;">ALREADY PURCHASED?</span>
+      <div style="flex:1;height:1px;background:rgba(123,47,255,0.3);"></div>
+    </div>
+
+    <!-- Access code -->
     <div class="lock-input-wrap">
       <input
         class="lock-input"
         id="passcodeInput"
         type="password"
-        placeholder="ENTER ACCESS CODE"
+        placeholder="ENTER YOUR ACCESS CODE"
         autocomplete="off"
         maxlength="20"
       />
@@ -2419,6 +2448,17 @@
 
   // ── Lock / Unlock ──
   const PASSCODE = 'CLAUDE27';
+
+  function trackStripeClick() {
+    // Show helpful message while Stripe opens
+    setTimeout(function() {
+      var hint = document.createElement('p');
+      hint.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7b2fff,#4a0099);color:#fff;padding:12px 24px;border-radius:30px;font-size:13px;font-weight:700;z-index:9999;box-shadow:0 4px 20px rgba(123,47,255,0.5);';
+      hint.textContent = '💜 After payment, check your email for your access code!';
+      document.body.appendChild(hint);
+      setTimeout(function(){ hint.remove(); }, 8000);
+    }, 1500);
+  }
 
   function unlock() {
     const val = document.getElementById('passcodeInput').value.trim();

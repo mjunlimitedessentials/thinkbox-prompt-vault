@@ -987,6 +987,75 @@
     <button class="lock-btn" onclick="unlock()">🚀 UNLOCK THE VAULT</button>
     <p class="lock-error" id="lockError">⚠️ Invalid passcode. Try again.</p>
     <p class="lock-presenter">Presented by <strong>Mona Jackson-Ham</strong><br/>Founder & CEO, ThinkBox AI Studios</p>
+
+    <!-- Private Group Banner -->
+    <div style="background:linear-gradient(135deg,rgba(245,200,66,0.12),rgba(123,47,255,0.12));border:1px solid rgba(245,200,66,0.35);border-radius:12px;padding:1rem 1.2rem;margin:1.4rem 0 1rem;text-align:left;">
+      <p style="color:#f5c842;font-weight:800;font-size:0.8rem;letter-spacing:1px;margin-bottom:0.5rem;">💬 PRIVATE COMMUNITY ACCESS INCLUDED</p>
+      <p style="color:#e2e8f0;font-size:0.82rem;line-height:1.7;margin:0;">
+        Every purchase includes access to the <strong style="color:#f5c842;">ThinkBox AI Inner Circle</strong> — a private group for vault members only.<br/><br/>
+        After checkout, you'll receive an email from <strong>mjunlimitedessentials@gmail.com</strong> with:<br/>
+        ✦ Your personal access code<br/>
+        ✦ Your private group invite link<br/>
+        ✦ A welcome walkthrough from Mona
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div style="margin:1.2rem 0 0.5rem;text-align:left;">
+      <p style="color:#f5c842;font-weight:800;font-size:0.8rem;letter-spacing:1px;margin-bottom:0.8rem;">❓ FREQUENTLY ASKED QUESTIONS</p>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid rgba(123,47,255,0.25);padding:0.7rem 0;cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e2e8f0;font-size:0.82rem;font-weight:700;">What AI tools do I need to use these prompts?</span>
+          <span class="faq-arrow" style="color:#7b2fff;font-size:1rem;transition:transform 0.3s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;color:rgba(192,200,216,0.75);font-size:0.78rem;line-height:1.6;padding-top:0.5rem;">
+          Any major AI tool works — ChatGPT, Claude, Gemini, or Copilot. The prompts are engineered to perform on all platforms. No special setup required.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid rgba(123,47,255,0.25);padding:0.7rem 0;cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e2e8f0;font-size:0.82rem;font-weight:700;">How do I get my access code after purchasing?</span>
+          <span class="faq-arrow" style="color:#7b2fff;font-size:1rem;transition:transform 0.3s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;color:rgba(192,200,216,0.75);font-size:0.78rem;line-height:1.6;padding-top:0.5rem;">
+          Immediately after checkout, you'll receive an email from <strong style="color:#e2e8f0;">mjunlimitedessentials@gmail.com</strong> with your personal access code and private group link. Check your spam folder if you don't see it within 5 minutes.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid rgba(123,47,255,0.25);padding:0.7rem 0;cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e2e8f0;font-size:0.82rem;font-weight:700;">Is this a subscription or one-time payment?</span>
+          <span class="faq-arrow" style="color:#7b2fff;font-size:1rem;transition:transform 0.3s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;color:rgba(192,200,216,0.75);font-size:0.78rem;line-height:1.6;padding-top:0.5rem;">
+          100% one-time payment of $97. You get lifetime access to the vault and all future updates at no additional charge.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid rgba(123,47,255,0.25);padding:0.7rem 0;cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e2e8f0;font-size:0.82rem;font-weight:700;">I'm a beginner — is this for me?</span>
+          <span class="faq-arrow" style="color:#7b2fff;font-size:1rem;transition:transform 0.3s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;color:rgba(192,200,216,0.75);font-size:0.78rem;line-height:1.6;padding-top:0.5rem;">
+          Absolutely. Every prompt is copy-paste ready with fill-in-the-blank brackets like [YOUR BUSINESS NAME]. No technical knowledge needed — just paste and go.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="padding:0.7rem 0;cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e2e8f0;font-size:0.82rem;font-weight:700;">What is the private group and how active is it?</span>
+          <span class="faq-arrow" style="color:#7b2fff;font-size:1rem;transition:transform 0.3s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;color:rgba(192,200,216,0.75);font-size:0.78rem;line-height:1.6;padding-top:0.5rem;">
+          The ThinkBox AI Inner Circle is a members-only community where Mona shares exclusive tips, prompt updates, live Q&amp;A sessions, and AI news. Members also support and collaborate with each other. Your invite link is included in your welcome email.
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -2448,6 +2517,20 @@
 
   // ── Lock / Unlock ──
   const PASSCODE = 'CLAUDE27';
+
+  function toggleFaq(item) {
+    const answer = item.querySelector('.faq-answer');
+    const arrow = item.querySelector('.faq-arrow');
+    const isOpen = answer.style.display === 'block';
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+    document.querySelectorAll('.faq-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+    // Open clicked if it was closed
+    if (!isOpen) {
+      answer.style.display = 'block';
+      arrow.style.transform = 'rotate(180deg)';
+    }
+  }
 
   function trackStripeClick() {
     // Show helpful message while Stripe opens
